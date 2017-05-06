@@ -1,0 +1,7 @@
+name: HelloWorld
+main: org.blockhosting.Hello_World.HelloWorld
+version: 1.0
+
+commands:
+  test:
+    usage: /test
