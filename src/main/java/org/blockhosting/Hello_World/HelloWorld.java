@@ -1,6 +1,7 @@
 package org.blockhosting.Hello_World;
 
 import me.koenn.core.command.CommandAPI;
+import org.blockhosting.Hello_World.commands.flyBow;
 import org.blockhosting.Hello_World.commands.testCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +25,9 @@ public class HelloWorld extends JavaPlugin{
         new PlayerListener(this);
 
         CommandAPI.registerCommand(new testCommand(), this);
+
+        CommandAPI.registerCommand(new flyBow(), this);
+
     }
 
     @Override

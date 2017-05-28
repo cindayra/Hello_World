@@ -1,16 +1,15 @@
 package org.blockhosting.Hello_World;
 
 
+import me.koenn.core.listeners.PlayerJoinListener;
 import me.koenn.core.misc.Timer;
-//import org.bukkit.Bukkit;
+import me.koenn.core.misc.Title;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-
-//import org.bukkit.event.player.PlayerMoveEvent;
 
 /*
  * Created by cindayra on 5/6/2017.
@@ -34,34 +33,35 @@ public class PlayerListener implements Listener {
 
     }
 
-    @EventHandler
-    public void joinDenier(PlayerJoinEvent denied) {
-        Player player = denied.getPlayer();
 
-        if (player.getPlayerListName() == "CraftPlayer{name=Derpproduction}") {
-            player.kickPlayer("Bye Ethan!");
-        }
+    @EventHandler
+    public void welcome(PlayerJoinEvent Welcome){
+
+        Player player = Welcome.getPlayer();
+
+        new Title("Welcome " + player.getName(), " to &aBlock&bGaming &fenjoy your stay!").send(player);
+
     }
 
 
-/*    @EventHandler
-    public void moving(PlayerMoveEvent move) {
-        Player player = move.getPlayer();
+    @EventHandler
+    public void byeEthan (PlayerJoinEvent bye) {
+
+        Player player = bye.getPlayer();
+
+        String Ethan = player.getName();
+        String controll = "Cindayra";
+
+        if (Ethan == controll) {
+
+            new Timer(40, HelloWorld.getInstance()).start(() -> {
+
+            player.kickPlayer("See you later, Ethan!");
+            });
+
+        }
 
 
-
-        player.sendMessage(ChatColor.DARK_RED + "Don't " + ChatColor.BOLD + "move!");
-
-    }*/
-
-
-/*    @EventHandler
-    public void welcome(PlayerJoinEvent welcome) {
-
-        Player player = welcome.getPlayer();
-
-        Bukkit.broadcastMessage("Welcome " + player + " to the official BlockGaming server");
-
-    }*/
+    }
 
 }
