@@ -1,18 +1,18 @@
 package org.blockhosting.Hello_World;
 
 import me.koenn.core.command.CommandAPI;
-import org.blockhosting.Hello_World.commands.flyBow;
 import org.blockhosting.Hello_World.commands.testCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /*
  * Created by cindayra on 5/4/2017.
  */
-public class HelloWorld extends JavaPlugin{
+public class HelloWorld extends JavaPlugin {
 
     private static HelloWorld instance;
 
-    public static HelloWorld getInstance(){
+    public static HelloWorld getInstance() {
         return instance;
     }
 
@@ -26,14 +26,11 @@ public class HelloWorld extends JavaPlugin{
 
         CommandAPI.registerCommand(new testCommand(), this);
 
-        CommandAPI.registerCommand(new flyBow(), this);
-
     }
 
     @Override
     public void onDisable() {
 
-
-
+        Bukkit.getScheduler().cancelTasks(this);
     }
 }
